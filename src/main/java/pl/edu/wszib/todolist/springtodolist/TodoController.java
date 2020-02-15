@@ -16,9 +16,9 @@ public class TodoController {
         return ToDoDB.getAll().stream().map(ToDoConverter::convert).collect(Collectors.toList());
     }
 
-    @GetMapping("/todos/upcomming")
+    @GetMapping("/todos/upcoming")
     public List<TodoDTO> upcomming(){
-        return ToDoDB.upcomming().stream().map(ToDoConverter::convert).collect(Collectors.toList());
+        return ToDoDB.upcoming().stream().map(ToDoConverter::convert).collect(Collectors.toList());
     }
 
     @GetMapping("/todos/search/{status}")
