@@ -13,7 +13,7 @@ public interface TodoDao extends CrudRepository<Todo, Integer> {
 
     int countTodosByStatus(Status status);
     List<Todo> findAllByStatus(Status status);
-    List<Todo> findTop5ByDueDateAferOrderByDueDateAsc(Date date);
+    List<Todo> findTop5ByDueDateAfterOrderByDueDateAsc(Date date);
 
     @Override
     List<Todo> findAll();
