@@ -52,7 +52,8 @@ public List<TodoDTO> search(String status) {
 
     public TodoDTO add(TodoDTO todoDTO) {
         Todo todo = ToDoConverter.convert(todoDTO);
-        todo.setId(0);
+        todo.setId(null);
+        todo.setStatus(Status.NEW);
         todo = todoDao.save(todo);
         return ToDoConverter.convert(todo);
 

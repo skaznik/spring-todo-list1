@@ -7,7 +7,7 @@ import java.util.Date;
 public class Todo {
     @Id
     @GeneratedValue
-    public int id;
+    public Integer id;
 
     public String title;
     @Temporal(value = TemporalType.TIMESTAMP) //określa jak ma być zapisywana data w bazie
@@ -15,11 +15,11 @@ public class Todo {
 
     public Status status;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
