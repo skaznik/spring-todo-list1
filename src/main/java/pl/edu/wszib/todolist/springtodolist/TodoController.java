@@ -51,12 +51,12 @@ public class TodoController {
 
     @PutMapping("/todo")
     public TodoDTO update(@RequestBody TodoDTO todoDTO){
-        return ToDoConverter.convert(ToDoDB.update(ToDoConverter.convert(todoDTO)));
+        return todoService.update(todoDTO);
     }
 
     @DeleteMapping("/todo/{id}")
     public TodoDTO remove(@PathVariable long id){
-        return ToDoConverter.convert(ToDoDB.remove(id));
+        return todoService.remove(id);
     }
 
 }

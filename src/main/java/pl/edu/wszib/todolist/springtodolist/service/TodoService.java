@@ -57,4 +57,20 @@ public List<TodoDTO> search(String status) {
         return ToDoConverter.convert(todo);
 
     }
+
+    public TodoDTO update(TodoDTO todoDTO) {
+        Todo existing = todoDao.findById(todoDTO.id).get();
+        Todo incoming = ToDoConverter.convert(todoDTO);
+        existing.setDueDate(incoming.getDueDate());
+        existing.setStatus(incoming.getStatus());
+        existing.setTitle(incoming.getTitle());
+        existing = todoDao.save(existing);
+        return ToDoConverter.convert(existing);
+    }
+
+    public TodoDTO remove(long id) {
+        Todo existing = todoDao.findById((int) id).get();
+        todoDao.delete(existing);
+        return ToDoConverter.convert(existing);
+    }
 }
