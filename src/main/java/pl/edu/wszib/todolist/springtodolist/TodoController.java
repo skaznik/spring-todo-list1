@@ -24,39 +24,39 @@ public class TodoController {
         return todoService.findAll();
     }
 
-//    @GetMapping("/todos/upcoming")
-//    public List<TodoDTO> upcomming(){
-//        return ToDoDB.upcoming().stream().map(ToDoConverter::convert).collect(Collectors.toList());
-//    }
-//
-//    @GetMapping("/todos/search/{status}")
-//    public List<TodoDTO> search(@PathVariable String status){
-//        return ToDoDB.search(Status.valueOf(status)).stream().map(ToDoConverter::convert).collect(Collectors.toList());
-//    }
-//
-//    @GetMapping("/todos/count/{status}")
-//    public int count(@PathVariable String status){
-//        return ToDoDB.search(Status.valueOf(status)).size();
-//    }
-//
-//    @GetMapping("/todo/{id}")
-//    public TodoDTO get(@PathVariable long id){
-//        return ToDoConverter.convert(ToDoDB.get(id));
-//    }
-//
-//    @PostMapping("/todo")
-//    public TodoDTO add(@RequestBody TodoDTO todoDTO){
-//        return ToDoConverter.convert(ToDoDB.add(ToDoConverter.convert(todoDTO)));
-//    }
-//
-//    @PutMapping("/todo")
-//    public TodoDTO update(@RequestBody TodoDTO todoDTO){
-//        return ToDoConverter.convert(ToDoDB.update(ToDoConverter.convert(todoDTO)));
-//    }
-//
-//    @DeleteMapping("/todo/{id}")
-//    public TodoDTO remove(@PathVariable long id){
-//        return ToDoConverter.convert(ToDoDB.remove(id));
-//    }
+    @GetMapping("/todos/upcoming")
+    public List<TodoDTO> upcomming(){
+        return todoService.upcomming();
+    }
+
+    @GetMapping("/todos/search/{status}")
+    public List<TodoDTO> search(@PathVariable String status){
+        return todoService.search(status);
+    }
+
+    @GetMapping("/todos/count/{status}")
+    public int count(@PathVariable String status){
+        return todoService.count(status);
+    }
+
+    @GetMapping("/todo/{id}")
+    public TodoDTO get(@PathVariable long id){
+        return todoService.get(id);
+    }
+
+    @PostMapping("/todo")
+    public TodoDTO add(@RequestBody TodoDTO todoDTO){
+        return todoService.add(todoDTO);
+    }
+
+    @PutMapping("/todo")
+    public TodoDTO update(@RequestBody TodoDTO todoDTO){
+        return ToDoConverter.convert(ToDoDB.update(ToDoConverter.convert(todoDTO)));
+    }
+
+    @DeleteMapping("/todo/{id}")
+    public TodoDTO remove(@PathVariable long id){
+        return ToDoConverter.convert(ToDoDB.remove(id));
+    }
 
 }
